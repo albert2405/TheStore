@@ -153,7 +153,7 @@ MonoBehaviour:
   quantitySold: 1
   products:
     id: 1
-    name: Pan
+    name: Carne
     category: comida
     cost: 5
     quantity: 1
