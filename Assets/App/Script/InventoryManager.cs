@@ -72,20 +72,20 @@ public class InventoryManager : MonoBehaviour
 
     }
 
-    public bool SubtractProduct(string productName, int quantity, string stateType)
+    public bool SubtractProduct(Products products)
     {
-        List<Products> stateList = GetStateList(stateType);
-        Products existingProduct = stateList.Find(p => p.name == productName);
+        List<Products> stateList = GetStateList(products.state);
+        Products existingProduct = stateList.Find(p => p.name == products.name);
 
-        if (existingProduct!=null && existingProduct.quantity>=quantity)
+        if (existingProduct!=null && existingProduct.quantity>= products.quantity)
         {
-            existingProduct.quantity -= quantity;
-            Debug.Log($"Cantidad de {productName} actualizada a {existingProduct.quantity} en estado {stateType}.");
+            existingProduct.quantity -= products.quantity;
+            Debug.Log($"Cantidad de {products.name} actualizada a {existingProduct.quantity} en estado {products.state}.");
 
             if (existingProduct.quantity == 0)
             {
                 stateList.Remove(existingProduct);
-                Debug.Log($"Producto {productName} removido del estado {stateType} por falta de stock.");
+                Debug.Log($"Producto {products.name} removido del estado {products.state} por falta de stock.");
             }
 
             SaveInventory();
@@ -93,17 +93,19 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"No hay suficiente stock de {productName} en estado {stateType}.");
+            Debug.LogWarning($"No hay suficiente stock de {products.name} en estado {products.state}.");
             return false;
         }
     }
 
-    public void GetProductByState(string stateType)
+    public void GetProductByState(string stateType, Transform spawn, GameObject inventoryItem)
     {
         List<Products> stateList = GetStateList(stateType);
         Debug.Log($"Productos en estado {stateType}:");
         foreach (Products product in stateList)
         {
+            GameObject instantiatedItem = Instantiate(inventoryItem, spawn);
+            instantiatedItem.GetComponent<InventoryItem>().SetData(product);
             Debug.Log($"{product.name}: {product.quantity} unidades.");
         }
     }

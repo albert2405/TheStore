@@ -424,9 +424,13 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.16f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.16f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.16f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
+"Assets/App/Script/Client.cs"
+"Assets/App/Script/IClient.cs"
+"Assets/App/Script/InventoryItem.cs"
 "Assets/App/Script/InventoryManager.cs"
 "Assets/App/Script/Products.cs"
 "Assets/App/Script/StoreManager.cs"
+"Assets/App/Script/UIStore.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 /deterministic
