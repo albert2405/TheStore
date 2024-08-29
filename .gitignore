@@ -462,3 +462,6 @@ Logs/shadercompiler-UnityShaderCompiler.exe-0.log
 Temp/FSTimeGet-6c30ffeb62bf4854f8a2f62ab98534fb
 UserSettings/Layouts/default-6000.dwlt
 Library/ShaderCache.db
+*.bhc
+*.log
+*.cm
